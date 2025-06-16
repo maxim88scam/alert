@@ -61,16 +61,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Embedded CSS -->
-  <style>
+ <style>
 :root {
   --brand-red: #c82333;
   --brand-dark: #1c1c1c;
   --bg-light: #f8f9fa;
   --text-dark: #333;
   --hover-glow: 0 0 12px rgba(200, 35, 51, 0.6);
-  --slider-height-desktop: 55vh;
-  --slider-height-tablet: 45vh;
-  --slider-height-mobile: 30vh;
 }
 
 body {
@@ -93,15 +90,17 @@ h1, h2 {
   font-weight: 700;
 }
 
+/* === INSTAGRAM STORY RATIO SLIDER === */
 .slider-container {
   position: relative;
-  max-width: 1080px;
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 9 / 16;
   margin: 2rem auto;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
   background: linear-gradient(135deg, #fff, #e6e6e6);
-  height: var(--slider-height-desktop);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,9 +115,9 @@ h1, h2 {
 
 .slider img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   flex-shrink: 0;
-  height: auto;
-  display: block;
   transition: transform 0.4s ease, filter 0.4s ease;
   filter: brightness(0.95);
   border-bottom: 4px solid var(--brand-red);
@@ -174,7 +173,6 @@ h1, h2 {
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
@@ -186,73 +184,8 @@ footer {
   font-size: 0.95rem;
 }
 
-/* Responsive & Mobile Adjustments */
-@media (max-width: 1024px) {
-  .slider-container {
-    height: var(--slider-height-tablet);
-  }
-
-  .image-name {
-    font-size: 0.9rem;
-  }
-
-  .slider-arrow {
-    font-size: 1.2rem;
-    padding: 0.5rem 0.8rem;
-  }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .slider-container {
-    height: var(--slider-height-mobile);
-  }
-
-  .slider img {
-    object-fit: contain;
-  }
-
-  .image-name {
-    font-size: 0.8rem;
-  }
-
-  ul.hashtag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0;
-    list-style: none;
-    margin-top: 1rem;
-  }
-
-  ul.hashtag-list li {
-    background-color: var(--brand-red);
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0.4rem 0.75rem;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-    white-space: nowrap;
-    cursor: default;
-  }
-
-  ul.hashtag-list li:hover {
-    background-color: #a61b28;
-  }
-
-  .slider-arrow {
-    font-size: 1rem;
-    padding: 0.4rem 0.6rem;
-  }
-}
-
-@media (max-width: 576px) {
-  main.container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
   h1, h2 {
     font-size: 1.25rem;
     line-height: 1.4;
@@ -281,6 +214,15 @@ footer {
     min-height: 80px;
     margin-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .slider-arrow {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .image-name {
+    font-size: 0.85rem;
   }
 }
 </style>
